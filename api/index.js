@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.get('/one', async (req, res) => {
     try {
-        const mcOne = await axios.get('http://localhost:9001/status')
+        const mcOne = await axios.get('/mcone/status')
         res.status(200).json({
             name: 'MicroService One',
             status: mcOne.data.msg
@@ -38,7 +38,7 @@ app.get('/one', async (req, res) => {
 app.get('/two', async (req, res) => {
 
     try {
-        const mcTwo = await axios.get('http://localhost:9002/status')
+        const mcTwo = await axios.get('/mctwo/status')
         res.status(200).json({
             name: 'MicroService Two',
             status: mcTwo.data.msg
@@ -51,7 +51,7 @@ app.get('/two', async (req, res) => {
 app.get('/three', async (req, res) => {
 
     try {
-        const mcThree = await axios.get('http://localhost:9003/status')
+        const mcThree = await axios.get('/mcthree/status')
         res.status(200).json({
             name: 'MicroService Three',
             status: mcThree.data.msg

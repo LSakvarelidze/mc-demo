@@ -30,7 +30,7 @@
 
   <script>
     const callService = async (name) => {
-      const response = await fetch(`http://127.0.0.1:9000/${name}`)
+      const response = await fetch(`/api/${name}`)
       const data = await response.json()
       document.getElementById(name).innerText = data.status
     }
