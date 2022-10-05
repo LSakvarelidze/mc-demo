@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TBC Devops Bootcamp</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      line-height: 3rem;
+    }
+
+    body {
+      padding-top: 5rem;
+      width: 80%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <p>Microservice One - <span id="one">Loading status..</span></p>
+  <hr>
+  <p>Microservice Two - <span id="two">Loading status..</span></p>
+  <hr>
+  <p>Microservice Three - <span id="three">Loading status..</span></p>
+
+
+  <script>
+    const callService = async (name) => {
+      const response = await fetch(`http://127.0.0.1:9000/${name}`)
+      const data = await response.json()
+      document.getElementById(name).innerText = data.status
+    }
+
+    callService('one')
+    callService('two')
+    callService('three')
+  </script>
+</body>
+</html>
