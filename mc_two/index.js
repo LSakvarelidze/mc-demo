@@ -3,7 +3,7 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/status', (req, res) => {
+app.get('/mctwo/status', (req, res) => {
     res.json({ status: 'ok',  msg: 'MicroService Two is online'  }).status(200)
 })
 

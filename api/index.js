@@ -23,9 +23,13 @@ app.get('/', (req, res) => {
     res.json({ status: 'ok' }).status(200)
 })
 
-app.get('/one', async (req, res) => {
+app.get('/api', (req, res) => {
+    res.json({ status: 'ok' }).status(200)
+})
+
+app.get('/api/one', async (req, res) => {
     try {
-        const mcOne = await axios.get('/mcone/status')
+        const mcOne = await axios.get('http://mcdemo-one-svc.lsakvarelidze.svc.cluster.local:9001/status')
         res.status(200).json({
             name: 'MicroService One',
             status: mcOne.data.msg
@@ -35,10 +39,10 @@ app.get('/one', async (req, res) => {
     }
 })
 
-app.get('/two', async (req, res) => {
+app.get('/api/two', async (req, res) => {
 
     try {
-        const mcTwo = await axios.get('/mctwo/status')
+        const mcTwo = await axios.get('http://mcdemo-two-svc.lsakvarelidze.svc.cluster.local:9002/status')
         res.status(200).json({
             name: 'MicroService Two',
             status: mcTwo.data.msg
@@ -48,10 +52,10 @@ app.get('/two', async (req, res) => {
     }
 })
 
-app.get('/three', async (req, res) => {
+app.get('/api/three', async (req, res) => {
 
     try {
-        const mcThree = await axios.get('/mcthree/status')
+        const mcThree = await axios.get('http://mcdemo-three-svc.lsakvarelidze.svc.cluster.local:9003/status')
         res.status(200).json({
             name: 'MicroService Three',
             status: mcThree.data.msg
